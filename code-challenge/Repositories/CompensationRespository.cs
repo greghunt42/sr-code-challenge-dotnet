@@ -28,7 +28,7 @@ namespace challenge.Repositories
 
         public Compensation GetByEmployeeId(string employeeId)
         {
-            return _employeeContext.Compensations.Include(e => e.Employee).FirstOrDefault(e => e.Employee.EmployeeId == employeeId);
+            return _employeeContext.Compensations.FirstOrDefault(e => e.EmployeeId == employeeId);
         }
 
         public Task SaveAsync()

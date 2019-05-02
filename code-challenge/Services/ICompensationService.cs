@@ -10,6 +10,5 @@ namespace challenge.Services
     {
         Compensation GetByEmployeeId(String employeeId);
         Compensation Create(Compensation compensation);
-        Compensation Replace(Compensation originalCompensation, Compensation newCompensation);
     }
 }

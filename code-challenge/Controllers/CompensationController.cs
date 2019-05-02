@@ -21,14 +21,14 @@ namespace challenge.Controllers
             _compensationService = compensationService;
         }
 
-        [HttpPost(Name = "createCompensation")]
+        [HttpPost]
         public IActionResult CreateCompensation([FromBody] Compensation compensation)
         {
             _compensationService.Create(compensation);
 
-           // _logger.LogDebug($"Received compensation create request for '{compensation.Employee.FirstName} {compensation.Employee.LastName}'");
+            _logger.LogDebug($"Received compensation create request for '{compensation.EmployeeId}'");
 
-            return CreatedAtRoute("createCompensation", new { id = compensation.EmployeeId }, compensation);
+            return CreatedAtRoute("getCompensationByEmployeeId", new { employeeId = compensation.EmployeeId }, compensation);
         }
 
         [HttpGet("{employeeId}", Name = "getCompensationByEmployeeId")]
